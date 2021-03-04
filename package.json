@@ -10,9 +10,18 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
+    "prestart": "npm run build:css",
+    "start": "cross-env BROWSER=none react-scripts start",
+    "prebuild": "cross-env NODE_ENV=production npm run build:css",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "cy:open": "cypress open --env configFile=development",
+    "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open",
+    "lint": "eslint --config ./.eslintrc --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx ./src",
+    "check-types": "tsc",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
+    "validate": "npm-run-all --parallel check-types lint",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
