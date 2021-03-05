@@ -16,17 +16,17 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript", 
 		"prettier",
-		"prettier/react",
-		"prettier/@typescript-eslint",
 		"plugin:@cypress/dev/react"
 	],
 	"plugins": [
 		"react",
 		"prettier",
 		"@typescript-eslint",
-		"react-hooks",
-		"babel"
+		"react-hooks"
 	],
 	"rules": {
 		"import/named": "off",
@@ -34,9 +34,6 @@
 		"jsx-a11y/label-has-for": "off",
 		"react/prop-types": "off",
 		"import/no-unassigned-import": "off",
-		"babel/no-invalid-this": 0,
-		"babel/camelcase": 0,
-		"babel/new-cap": 0,
 		"no-console": "off",
 		"jsx-a11y/accessible-emoji": "off",
 		"consistent-return": "off",
@@ -63,6 +60,14 @@
 	},
 	"settings": {
 		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				]
+			},
 			"typescript": {}
 		}
 	}

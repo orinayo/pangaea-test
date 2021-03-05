@@ -38,8 +38,7 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts",
     "build",
-    "test",
+    "cypress",
   ]
 }

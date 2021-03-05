@@ -10,6 +10,6 @@
         "@types/testing-library__cypress",
     ],
     "include": [
-        "*/*.ts"
+        "*/*.spec.ts",
     ]
 }
