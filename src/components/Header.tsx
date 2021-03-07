@@ -3,7 +3,7 @@ import {ChevronDownIcon} from 'components/SvgIcons'
 
 const Header: FC = () => {
   return (
-    <div className="w-4/5 mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:space-x-14">
+    <div className="w-4/5 mx-auto pt-16 pb-12 px-4 sm:pt-20 sm:pb-16 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:space-x-14">
       <div className="max-w-xl flex-shrink-0">
         <h2 className="text-4xl text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
           All Products

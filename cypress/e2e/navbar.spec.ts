@@ -6,7 +6,7 @@ context('Navbar', () => {
     user.visit('/')
   })
 
-  it('displays a toggle bar on mobile screens, and the full navbar on tablet and large screens', () => {
+  it('displays a toggle bar on mobile screens, and the full navbar on tablet and desktop screens', () => {
     user.viewport('macbook-15')
     user.wait(200)
     user.get('[data-cy=navbar]').should('be.visible')

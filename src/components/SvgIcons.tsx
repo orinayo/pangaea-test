@@ -132,3 +132,18 @@ export const ChevronDownIcon: SvgIcon = ({
     />
   </svg>
 )
+
+export const ChevronLeftIcon: SvgIcon = ({
+  fillColor = 'none',
+  classes = 'h-6 w-6',
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    className={classes}
+    fill={fillColor}
+    stroke="currentColor"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+  </svg>
+)
