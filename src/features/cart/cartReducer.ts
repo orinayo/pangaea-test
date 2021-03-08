@@ -19,17 +19,17 @@ type CloseCartAction = {
 
 type AddCartItemAction = {
   type: typeof ADD_CART_ITEM
-  payload: number
+  payload?: string
 }
 
 type RemoveCartItemAction = {
   type: typeof REMOVE_CART_ITEM
-  payload: number
+  payload?: string
 }
 
 type DeleteCartItemAction = {
   type: typeof DELETE_CART_ITEM
-  payload: number
+  payload?: string
 }
 
 type UpdateCurrencyAction = {
@@ -52,7 +52,7 @@ export type CartState = {
   productEntities: {[key: number]: Product}
 }
 
-export type CitiesActions =
+export type CartActions =
   | OpenCartAction
   | CloseCartAction
   | AddCartItemAction
@@ -61,9 +61,13 @@ export type CitiesActions =
   | UpdateCurrencyAction
   | SetProductEntitiesAction
 
+export const fooAction = ({
+  type: 'FOO',
+} as unknown) as CartActions
+
 export const cartReducer = (
   state: CartState,
-  action: CitiesActions,
+  action: CartActions,
 ): CartState => {
   switch (action.type) {
     case OPEN_CART:
@@ -72,40 +76,52 @@ export const cartReducer = (
       return {...state, isOpen: false}
     case ADD_CART_ITEM: {
       const {items, totalItems} = state
-      const {[action.payload]: itemCount, ...rest} = items
-      const itemsUpdate = {
-        ...rest,
-        [action.payload]: itemCount ? itemCount + 1 : 1,
+      if (action.payload) {
+        const itemId = Number(action.payload)
+        const {[itemId]: itemCount, ...rest} = items
+        const itemsUpdate = {
+          ...rest,
+          [itemId]: itemCount ? itemCount + 1 : 1,
+        }
+        return {
+          ...state,
+          items: itemsUpdate,
+          totalItems: totalItems + 1,
+        }
       }
-      return {
-        ...state,
-        items: itemsUpdate,
-        totalItems: totalItems + 1,
-      }
+      return state
     }
     case REMOVE_CART_ITEM: {
       const {items, totalItems} = state
-      const {[action.payload]: itemCount, ...rest} = items
-      const itemsUpdate = {
-        ...rest,
+      if (action.payload) {
+        const itemId = Number(action.payload)
+        const {[itemId]: itemCount, ...rest} = items
+        const itemsUpdate = {
+          ...rest,
+        }
+        if (itemCount > 1) {
+          itemsUpdate[itemId] = itemCount - 1
+        }
+        return {
+          ...state,
+          items: itemsUpdate,
+          totalItems: totalItems - 1,
+        }
       }
-      if (itemCount > 1) {
-        itemsUpdate[action.payload] = itemCount - 1
-      }
-      return {
-        ...state,
-        items: itemsUpdate,
-        totalItems: totalItems - 1,
-      }
+      return state
     }
     case DELETE_CART_ITEM: {
       const {items, totalItems} = state
-      const {[action.payload]: itemCount, ...rest} = items
-      return {
-        ...state,
-        items: rest,
-        totalItems: totalItems - itemCount,
+      if (action.payload) {
+        const itemId = Number(action.payload)
+        const {[itemId]: itemCount, ...rest} = items
+        return {
+          ...state,
+          items: rest,
+          totalItems: totalItems - itemCount,
+        }
       }
+      return state
     }
     case UPDATE_CURRENCY: {
       return {

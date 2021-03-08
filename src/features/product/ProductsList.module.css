@@ -1,4 +1,4 @@
-.loader {
+.container {
   height: calc(100vh - (58px + 252px));
   @media only screen and (max-width: 768px) {
     height: calc(100vh - (58px + 240px));

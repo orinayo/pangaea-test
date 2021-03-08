@@ -17,9 +17,6 @@ const Navbar: FC<{
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
-  const handleOpenCart = () => {
-    openCart()
-  }
   return (
     <div className="relative">
       <div className="navbar">
@@ -52,11 +49,7 @@ const Navbar: FC<{
             <a href="/" className="navbarLink">
               Account
             </a>
-            <button
-              type="button"
-              onClick={handleOpenCart}
-              className="navbarCart"
-            >
+            <button type="button" onClick={openCart} className="navbarCart">
               <span className="sr-only">Cart</span>
               <CartIcon />
               {totalItems ? (

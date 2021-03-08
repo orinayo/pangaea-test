@@ -126,10 +126,9 @@ export const CartProvider: FC = ({children}) => {
   const addCartItem = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       const itemId = event.currentTarget.dataset.id
-      if (!itemId) return
       dispatch({
         type: ADD_CART_ITEM,
-        payload: Number(itemId),
+        payload: itemId,
       })
       openCart()
     },
@@ -139,10 +138,9 @@ export const CartProvider: FC = ({children}) => {
   const removeCartItem = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       const itemId = event.currentTarget.dataset.id
-      if (!itemId) return
       dispatch({
         type: REMOVE_CART_ITEM,
-        payload: Number(itemId),
+        payload: itemId,
       })
     },
     [dispatch],
@@ -151,10 +149,9 @@ export const CartProvider: FC = ({children}) => {
   const deleteCartItem = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       const itemId = event.currentTarget.dataset.id
-      if (!itemId) return
       dispatch({
         type: DELETE_CART_ITEM,
-        payload: Number(itemId),
+        payload: itemId,
       })
     },
     [dispatch],

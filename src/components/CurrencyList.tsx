@@ -2,27 +2,21 @@ import React, {FC} from 'react'
 import {ChevronDownIcon} from './SvgIcons'
 
 type Props = {
-  updateCurrency: (newCurrency:string) => void
+  updateCurrency: (newCurrency: string) => void
   currencies: string[]
 }
 
 const CurrencyList: FC<Props> = ({updateCurrency, currencies}) => {
-   const handleKeyDown = ({key, currentTarget}:React.KeyboardEvent<HTMLSelectElement>) => {
-    if(/enter/i.test(key)){
-      updateCurrency(currentTarget.value)
-    }
-   }
-   const handleClick = ({target}: React.ChangeEvent<HTMLSelectElement>) => {
-     updateCurrency(target.value)
-   }
+  const handleClick = ({target}: React.ChangeEvent<HTMLSelectElement>) => {
+    updateCurrency(target.value)
+  }
   return (
     <div className="pt-2 w-2/5 md:w-1/5 px-4 sm:px-6">
       <div className="relative">
         <select
           name="currencies"
-          data-cy='currencies'
+          data-cy="currencies"
           className="currencyList"
-          onKeyDown={handleKeyDown}
           onChange={handleClick}
         >
           {currencies.map(currency => (
