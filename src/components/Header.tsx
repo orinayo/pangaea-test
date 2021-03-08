@@ -22,7 +22,10 @@ const Header: FC = () => {
             </option>
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-            <ChevronDownIcon fillColor="currentColor" classes="h-4 w-4 text-gray-400" />
+            <ChevronDownIcon
+              fillColor="currentColor"
+              classes="h-4 w-4 text-gray-400"
+            />
           </div>
         </div>
       </div>
@@ -30,4 +33,4 @@ const Header: FC = () => {
   )
 }
 
-export default Header
+export default React.memo(Header)
