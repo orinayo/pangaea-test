@@ -17,6 +17,9 @@ const Navbar: FC<{
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+  const handleOpenCart = () => {
+    openCart()
+  }
   return (
     <div className="relative">
       <div className="navbar">
@@ -49,7 +52,11 @@ const Navbar: FC<{
             <a href="/" className="navbarLink">
               Account
             </a>
-            <button type="button" onClick={openCart} className="navbarCart">
+            <button
+              type="button"
+              onClick={handleOpenCart}
+              className="navbarCart"
+            >
               <span className="sr-only">Cart</span>
               <CartIcon />
               {totalItems ? (
@@ -68,9 +75,9 @@ const Navbar: FC<{
             animate={{opacity: 1, y: 0}}
             initial={{opacity: 0, y: -20}}
             exit={{opacity: 0, y: -20}}
-            className="z-10 absolute top-0 inset-x-0 pt-1 pb-2 px-1 transition transform origin-top-right md:hidden"
+            className="navbarMobileMenu"
           >
-            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+            <div className="navbarMobileMenuContainer">
               <div className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
@@ -89,22 +96,16 @@ const Navbar: FC<{
                 </div>
                 <div className="mt-6">
                   <nav className="grid gap-6">
-                    <a
-                      href="/"
-                      className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
-                    >
-                      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-green-600 text-white">
+                    <a href="/" className="navbarMobileMenuLinks">
+                      <div className="navbarMobileMenuIcons">
                         <ShopIcon />
                       </div>
                       <div className="ml-4 text-base font-medium text-gray-900">
                         Shop
                       </div>
                     </a>
-                    <a
-                      href="/"
-                      className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
-                    >
-                      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-green-600 text-white">
+                    <a href="/" className="navbarMobileMenuLinks">
+                      <div className="navbarMobileMenuIcons">
                         <LearnIcon />
                       </div>
                       <div className="ml-4 text-base font-medium text-gray-900">
@@ -126,7 +127,7 @@ const Navbar: FC<{
                     <button
                       type="button"
                       onClick={openCart}
-                      className="relative inline-flex items-center justify-center px-2 rounded-md text-base font-medium text-gray-900 hover:text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-600"
+                      className="navbarMobileMenuCart"
                     >
                       <span className="sr-only">Cart</span>
                       <CartIcon />

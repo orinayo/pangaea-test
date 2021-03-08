@@ -38,8 +38,8 @@ export const CartContext = createContext<{
   removeCartItem: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   deleteCartItem: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   currency: string
-  updateCurrency: (newCurrency: string) => void
-  currencies?: string[]
+  updateCurrency: (newCurrency:string) => void
+  currencies: string[]
   isOpen: boolean
   totalItems: number
   productsLoading: boolean
@@ -54,6 +54,7 @@ export const CartContext = createContext<{
   removeCartItem: _e => {},
   deleteCartItem: _e => {},
   currency: 'USD',
+  currencies: ['USD'],
   updateCurrency: _newCurrency => {},
   isOpen: false,
   totalItems: 0,
@@ -158,9 +159,8 @@ export const CartProvider: FC = ({children}) => {
     },
     [dispatch],
   )
-
   const updateCurrency = useCallback(
-    async (newCurrency: string) => {
+    async (newCurrency) => {
       dispatch({
         type: UPDATE_CURRENCY,
         payload: newCurrency,
@@ -201,7 +201,7 @@ export const CartProvider: FC = ({children}) => {
         ...cartData,
         currency,
         updateCurrency,
-        currencies: getCurrenciesData?.currency,
+        currencies: getCurrenciesData?.currency ?? ['USD'],
         products,
         productsLoading: getProductsLoading,
         productsError: getProductsError?.message,
