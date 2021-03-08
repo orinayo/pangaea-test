@@ -15,7 +15,7 @@
   "scripts": {
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "prestart": "npm run build:css",
-    "start": "cross-env BROWSER=none react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts -r @cypress/instrument-cra start",
     "prebuild": "cross-env NODE_ENV=production npm run build:css",
     "build": "react-scripts build",
     "cy:open": "cypress open",

@@ -7,8 +7,8 @@ if (!webpackOptions) {
 }
 
 const cleanOptions = {
-  reactScripts: true, // cleaning for react-scripts?
-  coverage: true, // adds babel-plugin-istanbul
+  reactScripts: true,
+  coverage: true,
   looseModules: true
 }
 

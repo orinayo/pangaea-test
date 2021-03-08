@@ -17,6 +17,66 @@
   .navbarLink {
     @apply ml-3 relative inline-flex items-center justify-center p-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-600;
   }
+  .navbarMobileMenu {
+    @apply z-10 absolute top-0 inset-x-0 pt-1 pb-2 px-1 transition transform origin-top-right md:hidden;
+  }
+  .navbarMobileMenuContainer {
+    @apply rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50;
+  }
+  .navbarMobileMenuLinks {
+    @apply -m-3 p-3 flex items-center rounded-lg hover:bg-gray-50;
+  }
+  .navbarMobileMenuIcons {
+    @apply flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-green-600 text-white;
+  }
+  .navbarMobileMenuCart {
+    @apply relative inline-flex items-center justify-center px-2 rounded-md text-base font-medium text-gray-900 hover:text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-600;
+  }
+  .headerContainer {
+    @apply mx-auto pt-16 pb-12 px-4 sm:pt-20 sm:pb-16 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:space-x-14;
+  }
+  .headerMain {
+    @apply text-4xl text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl;
+  }
+  .headerFilter {
+    @apply appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md pl-3 pr-10 py-2 text-base text-gray-900 focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm;
+  }
+  .headerFilterIcon {
+    @apply pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center;
+  }
+  .currencyList {
+    @apply appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm;
+  }
+  .currencyListIcon {
+    @apply pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center;
+  }
+  .closeCartBtn {
+    @apply rounded-full text-gray-600 hover:text-gray-800 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600;
+  }
+  .cartSubscriptionBtn {
+    @apply bg-white py-3 px-4 uppercase border border-gray-300 shadow-sm text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600;
+  }
+  .cartCheckoutBtn {
+    @apply inline-flex justify-center py-3 px-4 uppercase border border-transparent shadow-sm text-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600;
+  }
+  .cartItem {
+    @apply inline-block list-none align-bottom bg-white p-2 text-left overflow-hidden transform transition-all my-4 md:my-8 align-middle w-full sm:p-3;
+  }
+  .deleteCartItemBtn {
+    @apply bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+  .cartItemName {
+    @apply text-sm md:text-base leading-6 capitalize font-medium text-gray-900;
+  }
+  .cartItemQtyBox {
+    @apply inline-flex mr-auto items-center border border-gray-300 p-2 text-sm font-medium text-gray-600;
+  }
+  .cartItemQtyBtn {
+    @apply hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600;
+  }
+  .productItemAddBtn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-base font-medium shadow-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600;
+  }
 }
 
 @font-face {
