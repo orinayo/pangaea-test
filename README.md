@@ -8,7 +8,7 @@ LuminSkin is an simple web app that enables users add and manage products in the
 - `Git` :  `git` is used as a version control system via `github`
 ## Installation
 - Verify that `node` and `yarn` is installed on your local machine by running the command `node -v` and `yarn -v`
-- Clone the repository to the folder of choice using `git clone https://github.com/orinayo/pangaeatest.git`
+- Clone the repository to the folder of choice using `git clone https://github.com/orinayo/pangaea-test.git`
 - In the project root directory install project dependencies using `yarn install`
 - To test the project works as expected, run `yarn start`
 - Open `http://localhost:3000` on your browser to see the result.
@@ -23,6 +23,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 #### `yarn test:e2e:dev`
 
 Launches the test runner in the interactive watch mode
+
+## Test Coverage:
+![alt-text](https://user-images.githubusercontent.com/32208591/110368849-ddf94180-8049-11eb-96e8-b0d2a05a1470.png)
 ## What the page includes:
 1. Responsive design of the website - as close to the mockup as possible.
 2. A navigation bar, header, and list of products.
